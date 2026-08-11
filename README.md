@@ -1,10 +1,12 @@
 Answers to the NW Mutual Practical Test
 
 ```
-Task 1 Front-end build/    responsive pricing section — see its README
-Task 3 API Integration/    live currency conversion — see its README
-ds/                        the Refuells design system, shared by both tasks
-Test Specs/                the original brief
+Task 1 Front-end build/                 responsive pricing section — see its README
+Task 2 Code Review                      frontend and code review
+Task 3 API Integration/                 live currency conversion — see its README
+Task 4 Judgement and Communication
+ds/                                     the Refuells design system, shared by both tasks
+Web Development Specialist Test         original brief
 ```
 
 `ds/` sits here rather than inside a task folder because both tasks build on it, and one copy
