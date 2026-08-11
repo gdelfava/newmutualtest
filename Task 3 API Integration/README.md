@@ -174,4 +174,4 @@ Checked in-browser rather than assumed:
 | Both providers down | GBP only, selector reset to GBP, no `NaN`, no uncaught errors |
 | Mobile (375px) | Grid stacks 4 → 2 → 1, control wraps, nothing clipped |
 
-Attribution: Claude Code and Claude Design
+Declaration: Claude Design was used to flesh out a design concept using a design system i created for one of my other apps. Claude Code was used to develop the frontend build.
