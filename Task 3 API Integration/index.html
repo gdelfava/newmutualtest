@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Refuells Shop — Live currency conversion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.frankfurter.dev">
+<link rel="stylesheet" href="../ds/styles.css">
+<link rel="stylesheet" href="currency.css">
+</head>
+<body>
+
+<!-- Task 3 demo storefront. Every price below is authored in GBP and is correct
+     as-is: currency.js only ever ADDS a converted line above the GBP one. With
+     JavaScript off, or the rate API down, this page is a normal GBP shop.
+
+     data-base-currency  the currency prices are stored and charged in
+     data-rate-ttl-hours how long a cached rate table stays fresh -->
+<main class="shop" data-base-currency="GBP" data-rate-ttl-hours="12">
+
+  <header class="shop__header">
+    <p class="shop__eyebrow">Refuells Shop</p>
+    <h1 class="shop__title">Kit for the road.</h1>
+    <p class="shop__lede">Hardware and accessories that pair with the Refuells app. Shipped from the UK.</p>
+  </header>
+
+  <!-- The control and the rate status sit together: one is the input, the other
+       is the feedback. The status region is polite so a currency change is
+       announced without interrupting whatever the user is reading. -->
+  <div class="currency">
+    <div class="currency__field">
+      <label class="currency__label" for="currency-select">Show prices in</label>
+      <select class="currency__select" id="currency-select" data-currency-select>
+        <option value="GBP">GBP — British Pound</option>
+      </select>
+    </div>
+    <p class="currency__status" data-rate-status role="status" aria-live="polite"></p>
+  </div>
+
+  <ul class="products">
+
+    <li class="product">
+      <div class="product__media" aria-hidden="true">
+        <svg class="product__glyph" viewBox="0 0 24 24"><use href="#icon-plug"></use></svg>
+      </div>
+      <div class="product__body">
+        <h2 class="product__name">Refuells OBD Dongle</h2>
+        <p class="product__blurb">Plugs into the OBD-II port. Trips, fuel and diagnostics, no phone mount required.</p>
+        <p class="price" data-price="49.00">
+          <span class="price__converted" data-price-converted hidden></span>
+          <span class="price__base"><data value="49.00">£49.00</data> GBP</span>
+        </p>
+        <button type="button" class="ds-button ds-button--primary">Add to basket</button>
+      </div>
+    </li>
+
+    <li class="product">
+      <span class="ds-badge product__badge">BEST SELLER</span>
+      <div class="product__media" aria-hidden="true">
+        <svg class="product__glyph" viewBox="0 0 24 24"><use href="#icon-mount"></use></svg>
+      </div>
+      <div class="product__body">
+        <h2 class="product__name">Magnetic Vent Mount</h2>
+        <p class="product__blurb">Machined aluminium, N52 magnets. Holds a phone steady on a farm track.</p>
+        <p class="price" data-price="24.50">
+          <span class="price__converted" data-price-converted hidden></span>
+          <span class="price__base"><data value="24.50">£24.50</data> GBP</span>
+        </p>
+        <button type="button" class="ds-button ds-button--primary">Add to basket</button>
+      </div>
+    </li>
+
+    <li class="product">
+      <div class="product__media" aria-hidden="true">
+        <svg class="product__glyph" viewBox="0 0 24 24"><use href="#icon-cable"></use></svg>
+      </div>
+      <div class="product__body">
+        <h2 class="product__name">Braided USB-C Cable, 1m</h2>
+        <p class="product__blurb">100W rated, right-angle head so it clears the centre console.</p>
+        <p class="price" data-price="12.99">
+          <span class="price__converted" data-price-converted hidden></span>
+          <span class="price__base"><data value="12.99">£12.99</data> GBP</span>
+        </p>
+        <button type="button" class="ds-button ds-button--secondary">Add to basket</button>
+      </div>
+    </li>
+
+    <li class="product">
+      <div class="product__media" aria-hidden="true">
+        <svg class="product__glyph" viewBox="0 0 24 24"><use href="#icon-box"></use></svg>
+      </div>
+      <div class="product__body">
+        <h2 class="product__name">Fleet Starter Pack</h2>
+        <p class="product__blurb">Five dongles, five mounts, one invoice. For teams putting the whole fleet on Refuells.</p>
+        <p class="price" data-price="299.00">
+          <span class="price__converted" data-price-converted hidden></span>
+          <span class="price__base"><data value="299.00">£299.00</data> GBP</span>
+        </p>
+        <button type="button" class="ds-button ds-button--secondary">Talk to us</button>
+      </div>
+    </li>
+
+  </ul>
+
+  <!-- Not decoration. If you show a converted price you have to say it is not the
+       price being charged, or you have mis-sold at checkout. -->
+  <p class="shop__disclaimer">
+    Converted prices are indicative and update once a day. You will be charged in GBP;
+    your bank sets the final rate.
+  </p>
+
+</main>
+
+<!-- Icon sprite. Four line glyphs, drawn on the 24×24 grid the DS uses. -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <symbol id="icon-plug" viewBox="0 0 24 24">
+    <path d="M9 2v6M15 2v6M6 8h12v3a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8ZM12 17v5"></path>
+  </symbol>
+  <symbol id="icon-mount" viewBox="0 0 24 24">
+    <rect x="7" y="2" width="10" height="16" rx="2"></rect><path d="M12 18v4M8 22h8"></path>
+  </symbol>
+  <symbol id="icon-cable" viewBox="0 0 24 24">
+    <path d="M4 4v7a5 5 0 0 0 5 5h6a5 5 0 0 1 5 5v3M8 2v4M4 6h8"></path>
+  </symbol>
+  <symbol id="icon-box" viewBox="0 0 24 24">
+    <path d="M21 8 12 3 3 8v8l9 5 9-5V8ZM3 8l9 5 9-5M12 13v8"></path>
+  </symbol>
+</svg>
+
+<script src="currency.js"></script>
+</body>
+</html>

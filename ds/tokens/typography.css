@@ -1,0 +1,29 @@
+/* Refuells — Typography (Anek Latin, DESIGN.md §2)
+   All app type is Anek Latin (variable, wght axis). In the app AppFont adds +2
+   to every size internally; the sizes below are the final on-screen px.
+   The app re-picks the widget numbers for a full-screen scale (§6). */
+:root {
+  --font: "Anek Latin", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* weights (variable wght axis) */
+  --w-light: 300;    /* @kind font */
+  --w-regular: 400;  /* @kind font */
+  --w-medium: 500;   /* @kind font */
+  --w-semibold: 600; /* @kind font */
+  --w-bold: 700;     /* @kind font */
+
+  /* ---- Roles ---- (size / weight; pair with the opacity ladder for colour) */
+  --type-hero: 700 40px/1.0 var(--font);        /* big number in a hero card */
+  --type-title-xl: 700 28px/1.15 var(--font);   /* nav large title */
+  --type-title: 700 17px/1.25 var(--font);      /* card / screen title */
+  --type-headline: 600 16px/1.3 var(--font);    /* station name, section title */
+  --type-body: 500 15px/1.4 var(--font);        /* body, list row primary */
+  --type-subhead: 500 13px/1.35 var(--font);    /* secondary row text */
+  --type-caption: 500 11px/1.3 var(--font);     /* chip / field labels, timestamps */
+  --type-value: 600 21px/1.1 var(--font);       /* stat chip value */
+
+  /* small-caps label: 9px semibold, tracked, uppercased */
+  --type-label: 600 9px/1.2 var(--font);
+  --label-tracking: 0.8px;
+  --pill-tracking: 0.3px;
+}

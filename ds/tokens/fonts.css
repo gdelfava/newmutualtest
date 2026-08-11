@@ -1,0 +1,18 @@
+/* Refuells — Fonts. Anek Latin variable (wght 100–800).
+
+   Sourced from the Google Fonts CDN rather than the design system's bundled
+   TTF. To go offline, drop AnekLatin-VariableFont.ttf into assets/fonts/,
+   delete the @import below and uncomment the @font-face block. */
+@import url("https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&display=swap");
+
+/* Original design-system declaration — the local-asset alternative:
+
+@font-face {
+  font-family: "Anek Latin";
+  src: url("../../assets/fonts/AnekLatin-VariableFont.ttf") format("truetype-variations"),
+       url("../../assets/fonts/AnekLatin-VariableFont.ttf") format("truetype");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+*/

@@ -1,0 +1,243 @@
+/* Refuells Shop — Task 3 demo storefront.
+   Everything here is built on the design-system tokens in ds/tokens/. No hex
+   values and no raw px scale at this layer: if a value isn't a token, it is a
+   layout number (grid columns, media query widths) that the DS has no opinion on. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* The [hidden] attribute has to beat the display rules below it — without this,
+   a display: value on .price__converted would keep an empty box on the page. */
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  padding: var(--space-huge) var(--space-lg) var(--space-massive);
+  background: var(--surface);
+  color: var(--text-1);
+  font: var(--type-body);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+.shop {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* ---- Header ---------------------------------------------------------- */
+
+.shop__header {
+  max-width: 620px;
+  margin: 0 auto var(--space-xxl);
+  text-align: center;
+}
+
+.shop__eyebrow {
+  margin: 0 0 var(--space-xs);
+  font: var(--type-label);
+  font-family: var(--font);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--text-45);
+}
+
+.shop__title {
+  margin: 0 0 var(--space-sm);
+  font: var(--type-title-xl);
+  font-family: var(--font);
+}
+
+.shop__lede {
+  margin: 0;
+  font: var(--type-body);
+  font-family: var(--font);
+  color: var(--text-55);
+}
+
+/* ---- Currency control ------------------------------------------------ */
+
+.currency {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm) var(--space-lg);
+  margin: 0 auto var(--space-xxl);
+  padding: var(--space-md) var(--space-lg);
+  max-width: max-content;
+  background: var(--card-fill);
+  border: 1px solid var(--card-stroke);
+  border-radius: var(--radius-lg);
+}
+
+.currency__field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.currency__label {
+  font: var(--type-subhead);
+  font-family: var(--font);
+  color: var(--text-60);
+  white-space: nowrap;
+}
+
+.currency__select {
+  appearance: none;
+  padding: var(--space-xs) var(--space-xxl) var(--space-xs) var(--space-sm);
+  background: var(--card-fill-raised);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  color: var(--text-1);
+  font: var(--type-subhead);
+  font-family: var(--font);
+  cursor: pointer;
+
+  /* Chevron drawn as a data URI so the control needs no sprite reference.
+     stroke is --text-40 flattened to a hex the URI can carry. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b3b8c2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-sm) center;
+  background-size: 16px;
+}
+
+.currency__select option {
+  /* Native dropdowns render on the OS surface, not ours — set both explicitly
+     or Windows renders white-on-white. */
+  background: var(--surface-raised);
+  color: var(--text-1);
+}
+
+/* The status line is a live region: it must hold its space when empty, or an
+   announcement shifts the layout under the pointer. */
+.currency__status {
+  margin: 0;
+  min-height: 1.35em;
+  font: var(--type-subhead);
+  font-family: var(--font);
+  color: var(--text-55);
+  text-align: center;
+}
+
+/* ---- Product grid ---------------------------------------------------- */
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin: 0 0 var(--space-xxl);
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 1000px) { .products { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .products { grid-template-columns: 1fr; } }
+
+.product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  background: var(--card-fill);
+  border: 1px solid var(--card-stroke);
+  border-radius: var(--radius-lg);
+}
+
+.product__badge {
+  --badge-color: var(--accent);
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+}
+
+.product__media {
+  display: grid;
+  place-items: center;
+  height: 120px;
+  margin-bottom: var(--space-md);
+  background: var(--card-fill-raised);
+  border-radius: var(--radius-md);
+}
+
+.product__glyph {
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: var(--icon-vehicle);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Push the price and button to the bottom so cards with different blurb
+   lengths still line their prices up across the row. */
+.product__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product__name {
+  margin: 0 0 var(--space-xxs);
+  font: var(--type-headline);
+  font-family: var(--font);
+}
+
+.product__blurb {
+  margin: 0 0 var(--space-md);
+  font: var(--type-subhead);
+  font-family: var(--font);
+  color: var(--text-55);
+}
+
+/* ---- Price ------------------------------------------------------------
+   Two lines, always in this order: the converted price on top, the GBP price
+   underneath. Without a conversion the GBP line is the only one, and it takes
+   the prominent treatment instead — .price--converted is what demotes it. */
+
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxxs);
+  margin: auto 0 var(--space-md);
+}
+
+.price__converted {
+  font: var(--type-value);
+  font-family: var(--font);
+  color: var(--text-1);
+}
+
+.price__base {
+  font: var(--type-value);
+  font-family: var(--font);
+  color: var(--text-1);
+}
+
+.price--converted .price__base {
+  font: var(--type-caption);
+  font-family: var(--font);
+  color: var(--text-40);
+}
+
+.price__base data { font: inherit; }
+
+/* ---- Disclaimer ------------------------------------------------------ */
+
+.shop__disclaimer {
+  max-width: 620px;
+  margin: 0 auto;
+  font: var(--type-caption);
+  font-family: var(--font);
+  color: var(--text-40);
+  text-align: center;
+}
+
+/* ---- Focus ----------------------------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}

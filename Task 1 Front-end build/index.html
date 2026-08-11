@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Refuells — Plans &amp; Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="../ds/styles.css">
+<link rel="stylesheet" href="pricing.css">
+</head>
+<body>
+
+<!-- Icon sprite. Two glyphs: a check for included features, a dash for excluded ones. -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <symbol id="icon-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></symbol>
+  <symbol id="icon-dash" viewBox="0 0 24 24"><path d="M5 12h14"></path></symbol>
+</svg>
+
+<section id="pricing" class="pricing" aria-labelledby="pricing-title"
+         data-default-billing="Monthly" data-annual-discount="20">
+
+  <header class="pricing__header">
+    <p class="pricing__eyebrow">Refuells Plans</p>
+    <h2 id="pricing-title" class="pricing__title">Drive smart. Save more. Earn rewards.</h2>
+    <p class="pricing__lede">Track every trip, refuel and rand — then turn safe driving into insurance discounts. Cancel any time.</p>
+  </header>
+
+  <div class="billing" role="group" aria-label="Billing period">
+    <div class="billing__switch">
+      <button type="button" class="billing__pill" data-billing="monthly" aria-pressed="true">Monthly</button>
+      <button type="button" class="billing__pill" data-billing="annual" aria-pressed="false">Annual</button>
+    </div>
+    <p class="billing__savings" data-savings-note>Save 20% on annual</p>
+  </div>
+
+  <div class="tiers">
+
+    <article class="tier" aria-labelledby="tier-solo">
+      <div class="tier__head">
+        <div class="tier__intro">
+          <h3 id="tier-solo" class="tier__name">Solo</h3>
+          <p class="tier__tagline">One vehicle, the essentials.</p>
+        </div>
+      </div>
+      <p class="tier__price">
+        <span class="tier__amount">R <span data-price="0">49</span></span>
+        <span class="tier__per" data-per-label>per month</span>
+      </p>
+      <p class="tier__billed" data-billed="0">billed monthly</p>
+      <div class="tier__divider"></div>
+      <ul class="features">
+        <li class="feature"><svg class="feature__icon" aria-hidden="true"><use href="#icon-check"></use></svg>Automatic trip tracking</li>
+        <li class="feature"><svg class="feature__icon" aria-hidden="true"><use href="#icon-check"></use></svg>Refuel log with cost per litre</li>
+        <li class="feature"><svg class="feature__icon" aria-hidden="true"><use href="#icon-check"></use></svg>Monthly spend summary</li>
+        <li class="feature feature--excluded"><svg class="feature__icon" aria-hidden="true"><use href="#icon-dash"></use></svg>No driving-behaviour score</li>
+      </ul>
+      <button type="button" class="ds-button ds-button--secondary">Start with Solo</button>
+    </article>
+
+    <article class="tier tier--featured" aria-labelledby="tier-plus">
+      <div class="tier__head">
+        <div class="tier__intro">
+          <h3 id="tier-plus" class="tier__name">Driver Plus</h3>
+          <p class="tier__tagline">Earn rewards for how you drive.</p>
+        </div>
+        <span class="ds-badge">RECOMMENDED</span>
+      </div>
+      <p class="tier__price">
+        <span class="tier__amount">R <span data-price="1">99</span></span>
+        <span class="tier__per" data-per-label>per month</span>
+      </p>
+      <p class="tier__billed" data-billed="1">billed monthly</p>
+      <div class="tier__divider"></div>
+      <ul class="features">
+        <li class="feature"><svg class="feature__icon" aria-hidden="true"><use href="#icon-check"></use></svg>Everything in Solo</li>
+        <li class="feature"><svg class="feature__icon" aria-hidden="true"><use href="#icon-check"></use></svg>Trip ratings and event breakdown</li>
+        <li class="feature"><svg class="feature__icon" aria-hidden="true"><use href="#icon-check"></use></svg>Vitality Drive points sync</li>
+        <li class="feature"><svg class="feature__icon" aria-hidden="true"><use href="#icon-check"></use></svg>Finance and insurance reminders</li>
+        <li class="feature"><svg class="feature__icon" aria-hidden="true"><use href="#icon-check"></use></svg>Up to 3 vehicles</li>
+      </ul>
+      <button type="button" class="ds-button ds-button--primary">Get Driver Plus</button>
+    </article>
+
+    <article class="tier" aria-labelledby="tier-fleet">
+      <div class="tier__head">
+        <div class="tier__intro">
+          <h3 id="tier-fleet" class="tier__name">Fleet</h3>
+          <p class="tier__tagline">Every car, every driver, one view.</p>
+        </div>
+      </div>
+      <p class="tier__price">
+        <span class="tier__amount">R <span data-price="2">249</span></span>
+        <span class="tier__per" data-per-label>per month</span>
+      </p>
+      <p class="tier__billed" data-billed="2">billed monthly</p>
+      <div class="tier__divider"></div>
+      <ul class="features">
+        <li class="feature"><svg class="feature__icon" aria-hidden="true"><use href="#icon-check"></use></svg>Everything in Driver Plus</li>
+        <li class="feature"><svg class="feature__icon" aria-hidden="true"><use href="#icon-check"></use></svg>Unlimited vehicles and drivers</li>
+        <li class="feature"><svg class="feature__icon" aria-hidden="true"><use href="#icon-check"></use></svg>Business / personal split for SARS</li>
+        <li class="feature"><svg class="feature__icon" aria-hidden="true"><use href="#icon-check"></use></svg>CSV and PDF exports</li>
+        <li class="feature"><svg class="feature__icon" aria-hidden="true"><use href="#icon-check"></use></svg>Priority support</li>
+      </ul>
+      <button type="button" class="ds-button ds-button--secondary">Talk to us</button>
+    </article>
+
+  </div>
+
+  <p class="pricing__note" aria-live="polite" data-live-note>Switch to annual to pay 20% less per month. Prices include VAT.</p>
+</section>
+
+<script src="pricing.js"></script>
+</body>
+</html>

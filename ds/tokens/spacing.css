@@ -1,0 +1,14 @@
+/* Refuells — Spacing (AppSpacing, Theme.swift) */
+:root {
+  --space-xxxs: 2px;
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;   /* the workhorse: card padding, list-row gaps */
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
+  --space-xxxl: 40px;
+  --space-huge: 48px;
+  --space-massive: 64px;
+}

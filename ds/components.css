@@ -1,0 +1,77 @@
+/* Refuells Design System — components used by the pricing section.
+   Ported from _ds_bundle.js (components/actions/Button.jsx,
+   components/data/Badge.jsx). Values are 1:1 with the React source; the
+   pressed / disabled states become CSS pseudo-classes instead of useState. */
+
+/* ---- Button ----
+   variant="primary": solid ACCENT ORANGE, white text — the one press-target colour.
+   variant="secondary": outlined in --primary (structure), primary-coloured text.
+   Press = opacity 0.7 (HighlightButtonStyle). 50pt tall, radius md. */
+.ds-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  height: 50px;
+  width: 100%;
+  padding: 0 var(--space-lg);
+  border: none;
+  border-radius: var(--radius-md);
+  font: var(--type-body);
+  font-family: var(--font);
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity .12s ease;
+}
+
+.ds-button:active { opacity: .7; }
+
+.ds-button:disabled {
+  opacity: .4;
+  cursor: default;
+}
+
+.ds-button--primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.ds-button--secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+
+/* ---- Badge ----
+   A small subtle label. Default style fills the colour at 15%.
+   Set --badge-color at the call site; for a rating/status use the
+   traffic-light colours (--rate-perfect etc). */
+.ds-badge {
+  --badge-color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  font-family: var(--font);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--badge-color);
+  background: color-mix(in srgb, var(--badge-color) 15%, transparent);
+}
+
+.ds-badge--filled {
+  color: #fff;
+  background: var(--badge-color);
+}
+
+.ds-badge--outlined {
+  background: transparent;
+  border-color: var(--badge-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-button { transition: none; }
+}

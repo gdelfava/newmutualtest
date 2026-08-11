@@ -1,0 +1,64 @@
+/* Refuells — Color tokens
+   Ground truth: DESIGN.md §3a "The app palette" (PanelDesignSystem.swift).
+   The app is DARK-ONLY. All contrast comes from how dark the flat surface is;
+   cards are translucent white composited over it. Do not add a light theme. */
+:root {
+  /* ---- Surface & identity ---- */
+  --surface: #081120;            /* the screen background — FLAT, no gradient, no glow */
+  --surface-raised: #0C1526;     /* solid base for floating overlays (tooltip/popover) */
+
+  --primary: #3E9BFF;            /* signature blue — structure: card strokes, links, section accents, loading tints */
+  --secondary: #7DC7FF;          /* lighter blue for secondary chrome */
+  --accent: #EC6D00;             /* brand orange — the ONE press-target color (see README closed list) */
+  --accent-deep: #B34F00;        /* far end of accent gradients */
+
+  /* ---- Card fill hierarchy ----
+     Two fill levels, ALWAYS: a card is --card-fill; anything INSIDE it is --card-fill-raised.
+     Values inferred from the widget's white@0.06 and the described raised hierarchy. */
+  --card-fill: rgba(255, 255, 255, 0.05);
+  --card-fill-raised: rgba(255, 255, 255, 0.09);
+  --card-stroke: rgba(62, 155, 255, 0.18);   /* primary @ 0.18, 1px */
+  --hairline: rgba(255, 255, 255, 0.15);     /* FAB / flat-circle hairline */
+  --divider: rgba(255, 255, 255, 0.08);
+
+  /* ---- Numbers that moved (PanelPalette.positive/.negative) ---- */
+  --positive: #74D6A5;
+  --negative: #FF9E8B;
+
+  /* ---- Traffic-light scale (state, not concept) ----
+     Exempt from the soft palette: these encode severity/rating. */
+  --rate-perfect: #34C759;   /* 32D74B in some call sites */
+  --rate-good: #FF9500;
+  --rate-poor: #FF3B30;
+  --rate-none: #8FA6D8;      /* fourth, neutral rating state (No Drive Day) */
+
+  /* ---- Recording banner (the one solid non-blue surface allowed) ---- */
+  --recording: #EC6D00;
+
+  /* ---- Guest / local pill ---- */
+  --guest: #9945FF;
+
+  /* ---- Semantic (AppTheme.Semantic — reconciled with panel) ---- */
+  --success: #34C759;
+  --warning: #FFB340;
+  --error: #FF453A;
+  --info: #5AC8FA;
+
+  /* ---- Text: white at a FIXED opacity ladder. Use these; don't invent new ones. ---- */
+  --text-1: rgba(255, 255, 255, 1);      /* titles, hero numbers, chip values */
+  --text-60: rgba(255, 255, 255, 0.6);   /* chip / field labels */
+  --text-55: rgba(255, 255, 255, 0.55);  /* subtitle, period line */
+  --text-45: rgba(255, 255, 255, 0.45);  /* small-caps hero label */
+  --text-40: rgba(255, 255, 255, 0.4);   /* units, denominators, ring caption, chevrons */
+  --text-30: rgba(255, 255, 255, 0.3);   /* weekday letters, disabled / empty states */
+
+  /* ---- Insurance tier hues (Vitality Drive) ---- */
+  --tier-blue: #2063A9;
+  --tier-bronze: #AC6821;
+  --tier-silver: #7FA8C9;   /* steel-blue substitute — a hueless silver can't tint */
+  --tier-gold: #DDA939;
+  --tier-diamond: #C8B9CF;
+
+  /* ---- Elevation ---- */
+  --shadow-overlay: 0 8px 24px rgba(0, 0, 0, 0.45); /* floating overlays / over-imagery only. NO colored shadows. */
+}

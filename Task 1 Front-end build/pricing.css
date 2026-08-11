@@ -1,0 +1,249 @@
+/* Refuells — Pricing section.
+   Every value here comes from Pricing Section.dc.html; the inline styles and
+   the pill() helper in its DCLogic class are lifted into classes unchanged. */
+
+/* ---- Page globals (the template's <helmet> block) ---- */
+html, body {
+  margin: 0;
+  background: #081120;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover { color: var(--secondary); }
+
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---- Section shell ---- */
+.pricing {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: clamp(32px, 6vw, 88px) clamp(20px, 5vw, 64px);
+  font-family: var(--font);
+  background: var(--surface);
+  color: var(--text-1);
+}
+
+.pricing__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 640px;
+  margin: 0 auto clamp(28px, 4vw, 44px);
+  text-align: center;
+}
+
+.pricing__eyebrow {
+  margin: 0;
+  font: var(--type-label);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--text-45);
+}
+
+.pricing__title {
+  margin: 0;
+  font: var(--type-title-xl);
+  font-size: clamp(28px, 4.4vw, 44px);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.pricing__lede {
+  margin: 0;
+  font: var(--type-body);
+  font-size: 16px;
+  color: var(--text-55);
+  text-wrap: pretty;
+}
+
+/* ---- Billing toggle ---- */
+.billing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(24px, 3.5vw, 40px);
+}
+
+.billing__switch {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--card-stroke);
+  border-radius: var(--radius-full);
+  background: var(--card-fill);
+}
+
+/* Driven off aria-pressed so the visual state and the announced state
+   can never drift apart. */
+.billing__pill {
+  padding: 9px 22px;
+  min-height: 44px;
+  border: none;
+  border-radius: var(--radius-full);
+  font: var(--type-caption);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: var(--pill-tracking);
+  color: var(--text-60);
+  background: transparent;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+}
+
+.billing__pill:hover { opacity: .85; }
+
+.billing__pill[aria-pressed="true"] {
+  color: #fff;
+  background: var(--accent);
+}
+
+.billing__savings {
+  margin: 0;
+  font: var(--type-caption);
+  color: var(--primary);
+  letter-spacing: var(--pill-tracking);
+}
+
+/* ---- Tier grid ---- */
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+  gap: clamp(16px, 2vw, 24px);
+  align-items: stretch;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.tier {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px 24px;
+  border: 1px solid var(--card-stroke);
+  border-radius: var(--radius-lg);
+  background: var(--card-fill);
+}
+
+.tier--featured {
+  position: relative;
+  border-radius: var(--radius-hero);
+  border-color: rgba(62, 155, 255, 0.45);
+  background: var(--card-fill-raised);
+}
+
+.tier__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tier__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tier__name {
+  margin: 0;
+  font: var(--type-title);
+  font-size: 18px;
+}
+
+.tier__tagline {
+  margin: 0;
+  font: var(--type-subhead);
+  color: var(--text-55);
+}
+
+.tier__price {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.tier__amount {
+  font: var(--type-hero);
+  font-size: 40px;
+}
+
+.tier__per {
+  font: var(--type-caption);
+  color: var(--text-40);
+}
+
+/* Pulled up under the price. min-height reserves the line so switching
+   between "billed monthly" and "R … billed yearly" never reflows the card. */
+.tier__billed {
+  margin: -12px 0 0;
+  min-height: 14px;
+  font: var(--type-caption);
+  color: var(--text-40);
+}
+
+.tier__divider {
+  height: 1px;
+  background: var(--divider);
+}
+
+/* ---- Feature list ---- */
+.features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font: var(--type-body);
+  color: var(--text-60);
+}
+
+.feature--excluded { color: var(--text-30); }
+
+.feature__icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  margin-top: 3px;
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.feature--excluded .feature__icon { stroke: rgba(255, 255, 255, 0.3); }
+
+/* ---- Footnote ---- */
+.pricing__note {
+  margin: 24px auto 0;
+  max-width: 560px;
+  text-align: center;
+  font: var(--type-caption);
+  color: var(--text-40);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .billing__pill { transition: none; }
+}

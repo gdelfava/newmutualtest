@@ -1,0 +1,22 @@
+/* Refuells — Icon palette (DESIGN.md §3a "The icon palette")
+   ONE COLOUR PER CONCEPT. A symbol's colour is decided by what it MEANS, never
+   by where it sits. Never inline a hex at a call site — add a concept here first.
+   The twelve hues span the whole wheel; the test is "that's the orange one" said
+   out loud. The wheel is FULL at twelve — a thirteenth concept needs a re-think. */
+:root {
+  --icon-vehicle: #B37DFF;   /* purple  — car.fill, vehicle pickers, bluetooth glyphs */
+  --icon-distance: #4DA3FF;  /* blue    — road.lanes, odometer, anything in km/mi */
+  --icon-time: #FF9F45;      /* orange  — clock, duration, timestamps, date pickers */
+  --icon-speed: #2FD6A8;     /* teal    — speedometer, average/max speed, speeding */
+  --icon-force: #AEE23C;     /* lime    — gauge, g-force, harshness, cornering */
+  --icon-place: #35D6E8;     /* cyan    — mappin, locations, stations, workplaces, beacons */
+  --icon-work: #E86FD8;      /* magenta — briefcase, business trips, reimbursement */
+  --icon-tag: #F2E863;       /* yellow  — tag.fill, labels, categories */
+  --icon-money: #4ED97B;     /* green   — banknote, currency AMOUNTS (spend, totals) */
+  --icon-fuel: #FFC93C;      /* gold    — fuelpump, litres/gallons */
+  --icon-cost: #FF7EB6;      /* pink    — price PER UNIT (the rate, not the amount) */
+  --icon-deduction: #FF5E5B; /* red     — minus.circle, points lost, penalties */
+  --icon-event: #FF9500;     /* amber   — driving events (= rate-good; an event IS a severity signal) */
+
+  /* money vs cost are NOT interchangeable: money = an amount; cost = a rate. */
+}

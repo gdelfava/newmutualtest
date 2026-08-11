@@ -1,0 +1,13 @@
+/* Refuells — Corner radius (AppCornerRadius, Theme.swift)
+   Cards use lg/xl continuous. Widget hero cards are 18, chips 14. Pills = full. */
+:root {
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;   /* standard card */
+  --radius-xl: 20px;
+  --radius-xxl: 24px;
+  --radius-chip: 14px; /* stat chip */
+  --radius-hero: 18px; /* hero card */
+  --radius-full: 9999px;
+}
