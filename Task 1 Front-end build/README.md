@@ -52,3 +52,5 @@ for Solo, Driver Plus and Fleet.
   block in `ds/tokens/fonts.css`.
 - The pill toggle is styled off `aria-pressed`, so the visual and announced
   states cannot drift apart.
+
+  Attribution: ChatGPT
