@@ -53,4 +53,4 @@ for Solo, Driver Plus and Fleet.
 - The pill toggle is styled off `aria-pressed`, so the visual and announced
   states cannot drift apart.
 
-  Attribution: ChatGPT
+  Attribution: Claude Code and Claude Design
