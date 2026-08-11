@@ -53,4 +53,4 @@ for Solo, Driver Plus and Fleet.
 - The pill toggle is styled off `aria-pressed`, so the visual and announced
   states cannot drift apart.
 
-  Attribution: Claude Code and Claude Design
+  Declaration: Claude Design was used to flesh out a design concept using a design system i created for one of my other apps. Claude Code was used to develop the frontend build.
