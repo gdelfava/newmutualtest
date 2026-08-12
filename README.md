@@ -7,7 +7,7 @@ Task 3 API Integration/                 live currency conversion — see its REA
 Task 4 Judgement and Communication
 ds/                                     the Refuells design system, shared by both tasks
 Web Development Specialist Test         original brief
-Portfolio Links                         Links ot 3 most recent projects
+Portfolio Links                         Links to 3 most recent projects
 ```
 
 `ds/` sits here rather than inside a task folder because both tasks build on it, and one copy

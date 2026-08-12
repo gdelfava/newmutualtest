@@ -52,3 +52,5 @@ for Solo, Driver Plus and Fleet.
   block in `ds/tokens/fonts.css`.
 - The pill toggle is styled off `aria-pressed`, so the visual and announced
   states cannot drift apart.
+
+  Declaration: Claude Design was used to flesh out a design concept using a design system i created for one of my other apps. Claude Code was used to develop the frontend build.
